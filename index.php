@@ -69,7 +69,7 @@ if(isset($_GET['telefone']) && $_GET['telefone'] != ''){
         echo "Nº formatado: " . $telefoneFormatado;
     }
     else{
-        echo "errou foi mlk";
+        echo "Número errado";
     }
 }
 
