@@ -139,9 +139,5 @@ if(isset($_GET['telefone']) && $_GET['telefone'] != ''){
     print ("<hr>");
 }
 
-// <script>alert("Esqueceu de me bloquear na Cazé TV")</script>
-
-// ^ se estiver no começo e fora dos colchetes diz que o padrão só é válido se começar exatamente no primeiro caractere do texto
-// Se o ^ estiver dentro do colchete ele se torna negação
 
 ?>
