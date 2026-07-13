@@ -23,8 +23,6 @@
         e.target.value = e.target.value.replace(/[^0-9\.-]/g, "")
 
         const apagando = ((e.inputType == "deleteContentBackward") || (e.inputType == "deleteContentForward"))
-        console.log(apagando);
-        console.log(e.target.value.length)
         if(!apagando){
             if(e.target.value.length == 3 || e.target.value.length == 7){
                 e.target.value = e.target.value + '.'
@@ -38,12 +36,9 @@
     }); 
 
     inputTelefone.addEventListener("input", (e) =>{
-        console.log((/[0-9]\(\)/g.test(e.target.value)))
         e.target.value = e.target.value.replace(/[^0-9\(\)\- ]/g, "")
 
         const apagando = ((e.inputType == "deleteContentBackward") || (e.inputType == "deleteContentForward"))
-        console.log(apagando);
-        console.log(e.target.value.length)
         if(!apagando){
             
             if(e.target.value.length == 1){
