@@ -7,5 +7,6 @@ CREATE TABLE tb_usuarios (
    telefone VARCHAR(15),
    email varchar(255)
 );
+
 SELECT * FROM tb_usuarios;
 desc tb_usuarios;
