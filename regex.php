@@ -5,8 +5,8 @@ $regexCPFJustNumbers = "/^[0-9]{11}$/";
 $regexEmail = "/([a-z0-9]{2,})@([a-z0-9]{2,})(\.[a-z]{2,})(\.[a-z]{2,})?/";
 $regexTelefone = "/^\(\d{2}\).?(9\d{4}-\d{4})$/";
 
-if (isset($_GET['email']) && $_GET['email'] != '') {
-    $text = $_GET['email'];
+if (isset($_POST['email']) && $_POST['email'] != '') {
+    $text = $_POST['email'];
 
     print("<hr>");
     if (preg_match($regexEmail, $text)) {
@@ -17,8 +17,8 @@ if (isset($_GET['email']) && $_GET['email'] != '') {
     }
 }
 
-if (isset($_GET['name']) && $_GET['name'] != '') {
-    $text = $_GET['name'];
+if (isset($_POST['name']) && $_POST['name'] != '') {
+    $text = $_POST['name'];
 
 
     print ("<hr>");
@@ -32,8 +32,8 @@ if (isset($_GET['name']) && $_GET['name'] != '') {
 }
 
 
-if (isset($_GET['cpf']) && $_GET['cpf'] != '') {
-    $text = $_GET['cpf'];
+if (isset($_POST['cpf']) && $_POST['cpf'] != '') {
+    $text = $_POST['cpf'];
 
     print ("<hr>");
     if (preg_match($regexCPF, $text)) {
@@ -43,13 +43,13 @@ if (isset($_GET['cpf']) && $_GET['cpf'] != '') {
         $cpfFormatado = preg_replace("/([0-9]{3})([0-9]{3})([0-9]{3})([0-9]{2})/", '$1.$2.$3-$4', $text);
         echo "CPF: " . $cpfFormatado;
     } else {
-        print(isset($_GET['cpf']));
+        print(isset($_POST['cpf']));
         print("Erro, coloque o CPF corretamente");
     }
 }
 
-if(isset($_GET['telefone']) && $_GET['telefone'] != ''){
-    $text = $_GET['telefone'];
+if(isset($_POST['telefone']) && $_POST['telefone'] != ''){
+    $text = $_POST['telefone'];
     
     print ("<hr>");
     if(preg_match($regexTelefone, $text)){

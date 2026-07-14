@@ -8,10 +8,10 @@
 </head>
 
 <body>
-   <form method="post" enctype="multipart/form-data">
-      <label>Escolha uma imagem</label>
-      <input type="file" name="imagem" placeholder="image">
-      <br>
+   <form method="get">
+      <input type="button" value="Home" onclick="window.location.href = '../regex'">
+      <input type="button" value="Limpar" onclick="window.location.href = '../regex/image.php'">
+      <input type="text" name="name" class="Nome do usuário" placeholder="Digite o nome do usuário">
       <input type="submit" value="enviar">
    </form>
    
@@ -25,23 +25,16 @@
 </style>
 </html>
 <?php
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+require 'conexao.php';
+if(!empty($_GET['name'])){
+   $stmt = $conn->prepare("SELECT imagem FROM tb_usuarios WHERE nome = ?");
+   $stmt->bind_param("s", $_GET['name']);
+   $stmt->execute();
 
-   var_dump($_FILES['imagem']);
-
-   $caminho_temporario = $_FILES['imagem']['tmp_name'];
-   $nome_atual = $_FILES['imagem']['name'];
-   $pasta_desejada = "uploads/";
-   $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
-
-   $pasta_final =  $pasta_desejada . $nome_atual;
-
-
-   // if (!is_dir($pasta_desejada)) {
-   //    mkdir($pasta_desejada, 0755, true);
-   // }
-   move_uploaded_file("$caminho_temporario", "$pasta_final");
-   echo $extensao;
-   echo "<img src='$pasta_final'>";
+   $resultado = $stmt->get_result();
+   $resultado = $resultado->fetch_assoc();
+   $imagem = $resultado['imagem'];
+   echo "<img src='$imagem'>";
+   
 }
 ?>

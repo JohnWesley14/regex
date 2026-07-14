@@ -7,6 +7,6 @@ CREATE TABLE tb_usuarios (
    telefone VARCHAR(15),
    email varchar(255)
 );
-
+TRUNCATE tb_usuarios;
 SELECT * FROM tb_usuarios;
 desc tb_usuarios;
