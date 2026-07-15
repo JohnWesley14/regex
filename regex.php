@@ -11,6 +11,7 @@ if (isset($_POST['email']) && $_POST['email'] != '') {
     print("<hr>");
     if (preg_match($regexEmail, $text)) {
         // $text = trim($text, '');
+        $emailSanitizado = $text;
         print ("Email: " . $text);
     } else {
         print("Email errado, refaça");
@@ -26,6 +27,7 @@ if (isset($_POST['name']) && $_POST['name'] != '') {
         $text = preg_replace($regexName, '',$text);
         print("Nome inválido, retire caracteres especiais");
         }else{
+        $nomeSanitizado = $text;
         print ("Nome: " . $text);
         
     }
@@ -38,9 +40,11 @@ if (isset($_POST['cpf']) && $_POST['cpf'] != '') {
     print ("<hr>");
     if (preg_match($regexCPF, $text)) {
         echo "CPF: " . $text;
+        $CPFSanitizado = $text;
     } else if (preg_match($regexCPFJustNumbers, $text)) {
         // Se vier só números então formatar como cpf normal.
         $cpfFormatado = preg_replace("/([0-9]{3})([0-9]{3})([0-9]{3})([0-9]{2})/", '$1.$2.$3-$4', $text);
+        $CPFSanitizado = $cpfFormatado;
         echo "CPF: " . $cpfFormatado;
     } else {
         print(isset($_POST['cpf']));
@@ -54,8 +58,10 @@ if(isset($_POST['telefone']) && $_POST['telefone'] != ''){
     print ("<hr>");
     if(preg_match($regexTelefone, $text)){
         echo "Número: " . $text;
+        $telefoneSanitizado = $text;
     }else if(preg_match("/^\d{11}$/", $text)){
        $telefoneFormatado = preg_replace("/(\d{2})(\d{5})(\d{4})/", "($1) $2-$3", $text);
+       $telefoneSanitizado = $telefoneFormatado;
         echo "Nº formatado: " . $telefoneFormatado;
     }
     else{

@@ -12,7 +12,7 @@
     <input type="text" name="cpf" class="cpf" autocomplete="off" placeholder="cpf: XXX.XXX.XXX-XX" maxlength="14" required>
     <input type="text" name="email" class="email" autocomplete="off" placeholder="email" required>
     <input type="text" name="telefone" class="telefone" autocomplete="off" placeholder="telefone: (XX) XXXX-XXXX" maxlength="15" required>
-    <input type="file" name="imagem" placeholder="image">
+    <input type="file" name="imagem" placeholder="image" accept="image/*">
     <input type="submit" value="Enviar">
     <input type="button" value="Ver Imagens" onclick="window.location.href = '../regex/image.php'">
 </form>
