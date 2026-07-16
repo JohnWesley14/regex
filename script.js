@@ -3,7 +3,6 @@ const inputTelefone = document.querySelector(".telefone")
 const inputNome = document.querySelector(".nome")
 const inputEmail = document.querySelector(".email")
 
-
 inputCPF.addEventListener("input", (e) => {
 
     e.target.value = e.target.value.replace(/[^0-9\.-]/g, "")

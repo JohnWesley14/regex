@@ -1,0 +1,13 @@
+img {
+   width: 200px;
+   height: 200px;
+   border-radius: 50%;
+   border: 1px solid black;
+}
+
+img:hover {
+   scale: 105%;
+   border: 1px solid aqua;
+   transition: 0.2s
+}
+
