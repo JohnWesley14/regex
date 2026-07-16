@@ -13,3 +13,5 @@ TRUNCATE tb_usuarios;
 SELECT * FROM tb_usuarios;
 desc tb_usuarios;
 
+SHOW STATUS LIKE 'Threads_connected';
+SHOW PROCESSLIST;

@@ -5,46 +5,24 @@ const inputEmail = document.querySelector(".email")
 
 inputCPF.addEventListener("input", (e) => {
 
-    e.target.value = e.target.value.replace(/[^0-9\.-]/g, "")
+    let valor = e.target.value 
+    valor = valor.replace(/\D/g, "")
 
-    const apagando = ((e.inputType == "deleteContentBackward") || (e.inputType == "deleteContentForward"))
-    if (!apagando) {
-        if (e.target.value.length == 3 || e.target.value.length == 7) {
-            e.target.value = e.target.value + '.'
-        }
-        if (e.target.value.length == 11) {
-
-            e.target.value = e.target.value + '-'
-        }
-
-
-    }
+    valor = valor.substring(0,11)
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2")
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2")
+    valor = valor.replace(/(\d{3})(\d{2})/, "$1-$2")
+    e.target.value = valor
 
 });
 
 inputTelefone.addEventListener("input", (e) => {
-    e.target.value = e.target.value.replace(/[^0-9\(\)\- ]/g, "")
-
-    const apagando = ((e.inputType == "deleteContentBackward") || (e.inputType == "deleteContentForward"))
-    if (!apagando) {
-
-        if (e.target.value.length == 1) {
-            e.target.value = `(${e.target.value}`
-        }
-        if (e.target.value.length == 3) {
-            e.target.value = e.target.value + ')'
-        }
-        if (e.target.value.length == 4) {
-            e.target.value = e.target.value + ' '
-        }
-        if (e.target.value.length == 5) {
-            e.target.value = e.target.value + '9'
-        }
-        if (e.target.value.length == 10) {
-
-            e.target.value = e.target.value + '-'
-        } if (e.target.value > 10) { e.target.value = e.target.value }
-    }
+    let valor = e.target.value
+    valor = valor.replace(/\D/g, "") 
+    valor.substring(0,11)
+    valor = valor.replace(/^(\d{2})(\d{5})/, "($1) $2")
+    valor = valor.replace(/(\d)(\d{4})$/, "$1-$2")
+    e.target.value = valor
 
 
 })
@@ -79,17 +57,4 @@ inputEmail.addEventListener("input", (e) => {
     }
 
 })
-inputTelefone.addEventListener("keydown", (e) => {
-    if (e.code == "Space" || e.code == "Minus" || e.key == "(" || e.key == ")") {
-        e.preventDefault()
-    }
-})
 
-
-
-
-inputCPF.addEventListener("keydown", (e) => {
-    if (e.key == "-" || e.key == ".") {
-        e.preventDefault()
-    }
-})

@@ -1,5 +1,5 @@
 <?php 
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "root";
 $password = "123";
 $dbname = "usuarios";
@@ -11,8 +11,6 @@ if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
-
 
 
 ?>

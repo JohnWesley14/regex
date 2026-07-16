@@ -5,6 +5,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Visualizar Imagens</title>
+   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -19,6 +20,7 @@
 <style>
 </style>
 <script src="script.js"></script>
+
 </html>
 <?php
 require 'conexao.php';
@@ -39,7 +41,7 @@ if (!empty($_GET['cpf'])) {
    } else {
       print("Erro, coloque o CPF corretamente");
    }
-   
+
    //Busca somente se o cpf estiver certo, com mensagem de erro caso o user n tenha colocado foto
    if (!empty($CPFSanitizado)) {
       $stmt = $conn->prepare("SELECT imagem FROM tb_usuarios WHERE cpf = ?");
@@ -54,6 +56,8 @@ if (!empty($_GET['cpf'])) {
       } else {
          echo "Não foi possível mostrar a imagem. CPF inexistente ou sem foto";
       }
+      $stmt->close();
    }
 }
+$conn->close();
 ?>

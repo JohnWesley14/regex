@@ -1,9 +1,4 @@
-<?php
-require 'conexao.php';
-require 'regex.php';
-require 'consulta.php';
 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +19,12 @@ require 'consulta.php';
     <input type="button" value="Ver Imagens" onclick="window.location.href = '../regex/image.php'">
 </form>
 <script src="script.js"></script>
+<?php
+require 'conexao.php';
+require 'regex.php';
+require 'consulta.php';
+
+?>
 </body>
 </html>
 
