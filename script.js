@@ -20,6 +20,7 @@ inputTelefone.addEventListener("input", (e) => {
     let valor = e.target.value
     valor = valor.replace(/\D/g, "") 
     valor.substring(0,11)
+    valor = valor.replace(/^(\d{2})([1-8])/, "$19$2");
     valor = valor.replace(/^(\d{2})(\d{5})/, "($1) $2")
     valor = valor.replace(/(\d)(\d{4})$/, "$1-$2")
     e.target.value = valor
